@@ -1,0 +1,15 @@
+{
+  "name": "prueba",
+  "version": "1.0.0",
+  "description": "proyecto de prueba",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Correa",
+  "license": "ISC",
+  "dependencies": {
+    "cowsay": "^1.5.0",
+    "lodash": "^4.17.21"
+  }
+}
