@@ -1,13 +1,26 @@
-const http = require('http');
-const hostname = '127.0.0.1';
+const express = require('express');
+const app = express();
 const port = 8080;
+var cowsay = require('cowsay');
 
-const server = http.createServer((req,res) => {
+
+app.get('/', (req, res) => {
+    const eyes = req.query.eyes
+    const tongue = req.query.tongue
+    const text = req.query.text
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.end('Hola mundo\n');
-    });
+    res.setHeader('Content-Type', 'text/txt');;
+    res.end(
+        cowsay.say(
+            {
+                text: text,
+                e: eyes,
+                T: tongue
+            }
+        )
+    );
+});
 
-    server.listen(port, hostname, () => {
-        console.log(`Servidor corriendo en http://${hostname}:${port}/`)
-    })
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  })
